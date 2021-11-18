@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link src="https://fonts.google.com/specimen/Open+Sans?query=san&selection.family=Open+Sans">
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Prasuk Jain</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                font-family: Open Sans;
+            }
+            html{
+                scroll-behavior: smooth;
+            }
+            .profileimg{
+                margin-bottom: -5px;
+                width: 100%;
+                border-top-left-radius: 50% 50%;
+                border-top-right-radius: 50% 50%;
+                border-bottom-right-radius: 50% 50%;
+                border-bottom-left-radius: 50% 50%;
+            }
+            .profileimgdiv{
+                width: 150px;
+                height: 150px;
+                margin: auto;
+                margin-top: 30px;
+                border-top-left-radius: 50% 50%;
+                border-top-right-radius: 50% 50%;
+                border-bottom-right-radius: 50% 50%;
+                border-bottom-left-radius: 50% 50%;
+            }
+            .button{
+                letter-spacing: 1px;
+                margin-top: 15px;
+                background-color: transparent;
+                border: 2px solid transparent;
+            }
+            .button:focus{
+                outline: none;
+            }
+            .button:hover{
+                cursor: pointer;
+                border-bottom: 2px solid blueviolet;
+            }
+            .aft:after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+            .centered {
+                width: 100%;
+                position: absolute;
+                text-align: center;
+            }
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+            }
+            .left {
+                overflow: auto;
+                letter-spacing: 1px;
+                left: 0;
+                width: 20%;
+                background-color: #F5F5F5;
+            }
+            .right {
+                overflow: auto;
+                right: 0;
+                width: 80%;
+            }
+            .tab button.active{
+                border-bottom: 2px solid blueviolet;
+            }
+            .portfolio{
+                letter-spacing: 2px;
+                padding: 10px 15px 10px;
+                background-color: transparent;
+                border: 2px solid grey;
+                border-radius: 4px;
+            }
+            .diagonal_lines_pattern, right{
+                background-image: -webkit-gradient(linear, left bottom, right top,color-stop(0, #FFFFFF), 
+                    color-stop(0.15, #FFFFFF), color-stop(0.15, #F5F5F5), color-stop(0.35, #F5F5F5),
+                    color-stop(0.35, #E8E8E8), color-stop(0.55, #E8E8E8), color-stop(0.55, #DCDCDC),
+                    color-stop(0.75, #DCDCDC), color-stop(0.75, #D3D3D3), color-stop(1, #D3D3D3));
+                background-size: auto;
+            }
+            .href{
+                text-decoration: none;
+            }
+            .dot{
+                margin-left: 50px;
+                padding: 5px 5px;
+                border-radius: 50%;
+                border: 3px solid gray;
+                display: inline-block;
+                background-color: transparent;
+                position: relative;
+            }
+            .dot:focus{
+                background-color: gray;
+                outline: none;
+            }
+            .opinion{
+                font-family: Arial, sans-serif;
+                letter-spacing: 1px;
+                text-indent: 10px;
+                border-radius: 3px;
+                margin-top: 16%;
+                margin-left: 700px;
+                background-color: white;
+                float: left;
+                width: 300px;
+            }
+            .input{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 8px;
+                border: none;
+                width: 280px;
+                padding: 10px 0px 10px;
+                border-bottom: 1px solid rgba(128,128,128,0.2);
+                outline: none;
+            }
+            .opinion button{
+                background-color: #3366CC;
+            }
+            .opinion button:hover{
+                background-color: #000099;
+            }
+            .tab button.active{
+                border-bottom: 2px solid blueviolet;
+                color: blueviolet;
+            }
+            .right{
+                display: none;
+            }
+            #slideleft{
+                position: absolute;
+                opacity: 0;
+                animation: slideleft 1.5s forwards;
+            }
+            @keyframes slideleft {
+                100% { left: 0; opacity: 1;}
+            }
+            #slidebottom{
+                position: absolute;
+                margin-top: 100px;
+                opacity: 0;
+                animation: slidebottom 1s forwards;
+            }
+            @keyframes slidebottom{
+                100%{margin-top: 0px; opacity: 1;}
+            }
+            #slideright{
+                position: absolute;
+                opacity: 0;
+                animation: slideright 1s forwards;
+                animation-delay: 1s;
+            }
+            @keyframes slideright{
+                100%{left: 290px; opacity: 1;}
+            }
+			#slideright1{
+                position: absolute;
+                opacity: 0;
+                animation: slideright1 1s forwards;
+                animation-delay: 1s;
+            }
+			@keyframes slideright1{
+                100%{left: 500px; opacity: 1;}
+            }
+            .aboutdiv{
+                height: 110px;
+                width: 150px;
+                padding: 20px 20px;
+                float: left;
+                box-shadow: 0 0 50px 10px rgba(220, 220, 220, .5), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .hexagon {
+                position: relative;
+                width: 90px; 
+                height: 51.96px;
+                margin: 25.98px 0;
+            }
+            .hexagon:before,
+            .hexagon:after {
+                content: "";
+                position: absolute;
+                width: 0;
+                border-left: 45px solid transparent;
+                border-right: 45px solid transparent;
+            }
+
+            .ideas:before {
+                bottom: 100%;
+                border-bottom: 25.98px solid #2c98f0;
+            }.ideas:after {
+                top: 100%;
+                width: 0;
+                border-top: 25.98px solid #2c98f0;
+            }
+            .software:before {
+                bottom: 100%;
+                border-bottom: 25.98px solid #D80000;
+            }.software:after {
+                top: 100%;
+                width: 0;
+                border-top: 25.98px solid #D80000;
+            }
+            .application:before {
+                bottom: 100%;
+                border-bottom: 25.98px solid #99FF00;
+            }.application:after {
+                top: 100%;
+                width: 0;
+                border-top: 25.98px solid #99FF00;
+            }
+            .servicesdiv{ 
+                height: 250px;
+                width: 250px;
+                float: left;
+                box-shadow: 0 0 50px 10px rgba(220, 220, 220, .5), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 1px;
+            }
+            .workdiv{ 
+                height: 250px;
+                width: 250px;
+                float: left;
+            }
+			.progress-bar.color-1 {
+				background: #2c98f0;
+			}
+			.color-1:after{
+				background: #2c98f0;
+			}
+			.progress-bar.color-2 {
+				background: #D80000;
+			}
+			.color-2:after{
+				background: #D80000;
+			}
+			.progress-bar.color-3 {
+				background: #99FF33;
+			}
+			.color-3:after{
+				background: #99FF33;
+			}
+			.progress-bar.color-4 {
+				background: #990099;
+			}
+			.color-4:after{
+				background: #990099;
+			}
+			.progress-bar.color-5 {
+				background: #989898;
+			}
+			.color-5:after{
+				background: #989898;
+			}
+			.progress-bar.color-6 {
+				background: #FF66CC;
+			}
+			.color-6:after{
+				background: #FF66CC;
+			}
+			.progress-bar:after {
+				position: absolute;
+				top: -3px;
+				right: 0;
+				width: 12px;
+				height: 12px;
+				content: '';
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				-ms-border-radius: 50%;
+				border-radius: 50%;
+			}
+			.progress-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				font-size: 10px;
+				line-height: 0.7;
+				color: #000;
+				font-weight: 600;
+				text-align: right;
+				position: relative;
+				overflow: visible;
+				-webkit-border-radius: 8px;
+				-moz-border-radius: 8px;
+				-ms-border-radius: 8px;
+				border-radius: 8px;
+			}
+			.progress-back {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				font-size: 10px;
+				line-height: 0.7;
+				color: #000;
+				font-weight: 600;
+				text-align: right;
+				position: relative;
+				overflow: visible;
+				-webkit-border-radius: 8px;
+				-moz-border-radius: 8px;
+				-ms-border-radius: 8px;
+				border-radius: 8px;
+			}
+			.progress-bar span {
+				position: absolute;
+				top: -22px;
+				right: 0;
+			}
+			.eduheadingbt{
+				padding: 15px 20px;
+				outline: 1px solid lightslategray;
+				margin-top: 10px;
+				background-color: #F5F5F5;
+				width: 100%;
+				outline: none;
+				border: none;
+				text-align: left;
+			}
+            .eduheadingbt:hover{
+                cursor: pointer;
+            }
+			.edudata{
+                overflow: hidden;
+				outline: 1px solid lightslategray;
+				display: none;
+				height: 0px;
+				opacity: 0;
+                margin-top: 5px;
+				animation: heightdownanimation 0.8s forwards;
+			}
+			@keyframes heightdownanimation{
+				100%{height: 200px; opacity: 1;}
+			}
+			@keyframes heightupanimation{
+				100%{height: 0px; opacity: 0}
+			}
+            .fa {
+                padding: 20px 10px;
+                font-size: 30px;
+                width: 50px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
+            .fa:hover {
+                opacity: 0.8;
+                transform: scale(1.3); 
+            }
+            .fa1:hover{
+                transform: none;
+                opacity: 1;
+            }
+            .fa-facebook {
+                background: #3B5998;
+                border-radius: 50%;
+                color: white;
+                transition: transform .5s;
+            }
+            .fa-twitter {
+                background: #55ACEE;
+                border-radius: 50%;
+                color: white;
+                margin-left: 50px;
+                transition: transform .5s;
+            }
+            .fa-linkedin {
+                background: #007bb5;
+                border-radius: 50%;
+                color: white;
+                margin-left: 50px;
+                transition: transform .5s;
+            }
+            .fa-instagram {
+                background: #125688;
+                border-radius: 50%;
+                color: white;
+                margin-left: 50px;
+                transition: transform .5s;
+            }
+            .fa-snapchat-ghost {
+                background: #fffc00;
+                border-radius: 50%;
+                color: white;
+                margin-left: 50px;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                transition: transform .5s;
+            }
+            .fa-skype {
+                background: #00aff0;
+                border-radius: 50%;
+                color: white;
+                margin-left: 50px;
+                transition: transform .5s;
+            }
+            .workButtons{
+                border: none;
+                outline: none;
+                background-color: transparent;
+            }
+            .workButtons:hover{
+                cursor: pointer;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="aft">
+            <div class="split left">
+            <div class="centered tab">
+                <div class="profileimgdiv">
+                    <img class="profileimg" src="parallax1.jpg" alt="Prasuk" width="150" height="150">
+                </div>
+                <h1 style=" margin-top: 15px">Prasuk Jain</h1>
+                <p style=" margin-top: -10px">Programmer & Designer in Indore</p>
+                
+                <button id="homebt" class="button btlink" onclick="buttons(event,'home')"><strong>HOME</strong></button><br>
+                <button id="aboutbt" class="button btlink" onclick="buttons(event,'about')"><strong>ABOUT</strong></button><br>
+                <button id="servicesbt" class="button btlink" onclick="buttons(event,'services')"><strong>SERVICES</strong></button><br>
+                <button id="skillsbt" class="button btlink" onclick="buttons(event,'skills')"><strong>SKILLS</strong></button><br>
+                <button id="educationbt" class="button btlink" onclick="buttons(event,'education')"><strong>EDUCATION</strong></button><br>
+                <button id="experiencebt" class="button btlink" onclick="buttons(event,'experience')"><strong>EXPERIENCE</strong></button><br>
+                <button id="workbt" class="button btlink" onclick="buttons(event,'work')"><strong>WORK</strong></button><br>
+                <button id="blogbt" class="button btlink" onclick="buttons(event,'blog')"><strong>BLOG</strong></button><br>
+                <button id="contactbt" class="button btlink" onclick="buttons(event,'contact')"><strong>CONTACT</strong></button><br><br><br>
+                
+                <p style="font-size: 80%">©Copyright© All rights are reserved</p>
+                <p style="font-size: 90%">Made with <color style="color: red">♥</color> By <a class="href" href="Personal.html">Prasuk Jain</a></p>
+            </div>
+            </div>
+                
+            <div id="home" class="split right diagonal_lines_pattern">
+                <div class="aft" style="width: 1220px">
+                    <div id="slideleft" style="left: -405px; margin-top: 18%; margin-left: 70px; float: left; font-size: 150%; width: 400px; animation-delay: 0.5s">
+                        <h1 style="font-size: 250%">I am a<br>Programmer</h1>
+                        <p style=" margin-top: -20px">Student / Freelancer</p>
+                        
+                        <div style="margin-top: 50px">
+                            <button class="portfolio" onclick="work()">VIEW PORTFOLIO <i class='fa1 fa fa-suitcase' style="font-size: 13px; padding: 0px; margin: 0px; width: 10px;"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="opinion">
+                        <h2>Your Opinion</h2>
+                        <form action="http://localhost/test/submit.php" method="POST">
+                            <table>
+                                <tr><td><input id="inputf" type="text" name="name" class="input" placeholder="Enter your Name" required></td></tr>
+                                <tr><td><input id="inputf" type="text" name="email" class="input" placeholder="Enter your Email" required></td></tr>
+                                <tr><td><input id="inputf" type="text" name="phNo" class="input" placeholder="Enter your Phone*"></td></tr>
+                                <tr><td><textarea id="inputf" class="input" name="texthere" placeholder="Type something" rows="4" cols="50" required></textarea></td></tr>
+                                <tr><td><button class="input" onclick="clear()" type="submit" style="border: none; color: white">Submit</button></td></tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <button class="dot" onclick="pagebtn()" style="margin-top: 70px"></button><br>
+                <button class="dot" onclick="pagebtn()" style="margin-top: 10px"></button>
+                
+            </div>
+            
+            <div id="about" class="split right">
+                <div id="slideleft" style="left: -100px; font-family: Arial, Helvetica, sans-serif; margin-top: 100px">
+                    <p style=" letter-spacing: 3px; font-size: 70%; margin-left: 50px; color: lightslategray">ABOUT ME</p>
+                    <p style=" letter-spacing: 3px; font-size: 130%; margin-left: 50px">WHO I AM?</p>
+                    <p style=" letter-spacing: 1px; font-size: 90%; margin-left: 50px; margin-top: 50px">
+                        Hi! I am Prasuk Jain.<br>
+
+                    </p>
+                </div>
+                
+                <div class="aft" style="margin-top: 400px">
+                    <div id="slideleft" class="aboutdiv" style="left: -70px; ;margin-left: 50px; border-bottom: 2px solid #3366; animation-delay: 1s">
+                        <i class="fa fa-lightbulb-o" style="font-size: 44px; color:#3366FF; margin: 0px; padding: 0px;"></i>
+                        <p style="margin-top: 25px; position: absolute">Web Design</p>
+                    </div>
+                    <div id="slideright" class="aboutdiv" style=" border-bottom: 2px solid red; left: 380px">
+						<p style="margin-top: 35%; position: absolute">Web Development</p>
+                        <img src="mic.png">
+                    </div>
+                    <div id="slidebottom" class="aboutdiv" style="margin-left: 550px; border-bottom: 2px solid #99FF66; animation-delay: 1s">
+                        <i class="fa fa-database" style="font-size: 36px;color:#99FF66; margin: 0px; padding: 0px;"></i>
+                        <p style="margin-top: 30px; position: absolute">Software</p>
+                    </div>
+                    <div id="slidebottom" class="aboutdiv" style="margin-left: 810px; border-bottom: 2px solid blue; animation-delay: 1.2s">
+                        <i class="fa fa-mobile-phone" style="font-size: 44px; color:blue; margin: 0px; padding: 0px;"></i>
+                        <p style="margin-top: 22px; position: absolute">Application</p>
+                    </div>
+                </div>
+                
+                <div id="slideleft" style="height: 500px; left: -100px; animation-delay: 1s">
+                    <div style="padding: 30px 50px; background-color: orange; margin-left: 50px; margin-top: 200px; width: 850px">
+                        <p style="font-size: 200%; line-height: 50px">I am happy to know you<br style="margin-top: 10px">that 10+ projects done successfully!</p>
+                        <button style="padding: 5px 20px; font-size: 110%; outline: 1px solid black; background-color: transparent; border: none; letter-spacing: 2px"><a class="href" style="color: black" href="">HIRE ME</a></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="services" class="split right">
+                <div id="slideleft" style="left: -100px; font-family: Arial, Helvetica, sans-serif; margin-top: 100px">
+                    <p style=" letter-spacing: 3px; font-size: 70%; margin-left: 60px; color: lightslategray">WHAT I DO?</p>
+                    <p style=" letter-spacing: 3px; font-size: 130%; margin-left: 60px; line-height: 35px">HERE ARE SOME OF MY<BR>EXPERTISE</P>
+                </div>
+                
+                <div style="margin-top: 300px">
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1s; margin-top: 50px; border-bottom: 3px solid #2c98f0; position: relative">
+                        <div class="hexagon ideas" style="margin-top: -20px; background-color: #2c98f0">
+							<img src="bulb1.png" height="40" width="40" style="position: absolute; margin-left: 25px; margin-top: 10px">
+						</div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>INNOVATIVE IDEAS</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1.2s; border-bottom: 3px solid #D80000; position: relative">
+                        <div class="hexagon software" style="margin-top: -20px; background-color: #D80000">
+                            <i class="fa1 fa fa-database" style="font-size: 30px;color:white; padding: 0px; position: absolute; margin-left: 20px; margin-top: 10px;"></i>
+						</div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>SOFTWARE</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1.4s; border-bottom: 3px solid #99FF00; position: relative">
+                        <div class="hexagon application" style="margin-top: -20px; background-color: #99FF00">
+                            <i class="fa1 fa fa-mobile-phone" style="font-size:48px;color:white; padding: 0px; position: absolute; margin-left: 20px; margin-top: 0px;"></i>
+						</div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>APPLICATION</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="aft" style="margin-top: 300px">
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1s; margin-top: 50px; border-bottom: 3px solid #2c98f0; position: relative">
+                        <div class="hexagon ideas" style="margin-top: -20px; background-color: #2c98f0">
+                            <i class='fas fa-layer-group' style='font-size: 34px; color:white; padding: 0px; position: absolute; margin-left: 28px; margin-top: 8px;'></i>
+                            
+						</div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>DATABASE</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1.2s; border-bottom: 3px solid #D80000; position: relative">
+                        <div class="hexagon software" style="margin-top: -20px; background-color: #D80000">
+							<i class="fas fa-desktop" style="font-size:34px; color:white; padding: 0px; position: absolute; margin-left: 25px; margin-top: 10px;"></i>
+                        </div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>WEB DEVELOPMENT</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div style=" height: 320px; width: 250px; float: left; margin-left: 60px">
+                    <div id="slidebottom" class="servicesdiv" style=" animation-delay: 1.4s; border-bottom: 3px solid #99FF00; position: relative">
+                        <div class="hexagon application" style="margin-top: -20px; background-color: #99FF00">
+							<i class="fa1 fa fa-mobile" style="font-size:48px; color:white; padding: 0px; position: absolute; margin-left: 20px; margin-top: 0px;"></i>
+						</div>
+                        <div style="text-align: center">
+                            <p style="margin-top: 50px"><b>DESIGNING</b></p>
+                            <p style="font-size: 85%; line-height: 20px">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div id="servicesimgdiv" class="aft" style="height: 300px; font-family: Arial, Helvetica, sans-serif; text-align: center; width: 1000px; margin-top: 100px; background-repeat: repeat-y; background-image: url('back3.jpg'); background-attachment: fixed">
+                    <div style="float: left; color: white; letter-spacing: 2px; height: 100%; width: 25%"><p style="margin-top: 100px; font-size: 200%"><strong>10</strong></p><p>CUPS OF COFFEE</p></div>
+					<div style="float: left; color: white; letter-spacing: 2px; height: 100%; width: 25%"><p style="margin-top: 100px; font-size: 200%"><strong>7</strong></p><p>PROJECTS</p></div>
+					<div style="float: left; color: white; letter-spacing: 2px; height: 100%; width: 25%"><p style="margin-top: 100px; font-size: 200%"><strong>3</strong></p><p>CLIENTS</p></div>
+					<div style="float: left; color: white; letter-spacing: 2px; height: 100%; width: 25%"><p style="margin-top: 100px; font-size: 200%"><strong>5</strong></p><p>PARTNERS</p></div>
+                </div>
+                <div style=" height: 200px"></div>
+            </div>
+            
+            <div id="skills" class="split right">
+				<div id="slideleft" style="left: -100px; font-family: Arial, Helvetica, sans-serif; text-align: justify; margin-top: 70px; width: 900px">
+                    <p style=" letter-spacing: 3px; font-size: 70%; margin-left: 60px; color: lightslategray">MY SPECIALITY</p>
+                    <p style=" letter-spacing: 3px; font-size: 130%; margin-left: 60px; line-height: 35px">MY SKILLS</P>
+					<p style=" letter-spacing: 1px; font-size: 80%; margin-left: 60px; line-height: 20px; margin-top: 70px; color: lightslategray">Highly Creative web application designer and developer, along with software. Knowledge of programming languages below, with certifications. </p>
+                </div>
+				
+				<p id="slideleft" style="animation-delay: 1s; margin-left: 60px; left: -100px; margin-top: 300px; position: absolute">WEB DEVELOPMENT</p>
+				<div>
+                
+                <div id="slideleft" style="animation-delay: 1s; width: 400px; margin-left: 60px; left: -100px; margin-top: 350px; float: left; animation-delay: 1s">
+					<span style="line-height: 40px">HTML/CSS</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:90%"><k style="color: #E8E8E8;">.</k>
+							<span>90%</span>
+						</div>
+					</div>
+				</div>
+				<p id="slideright1" style="animation-delay: 1s; left: 600px; margin-top: 300px; position: absolute">PROGRAMMING</p>
+				<div id="slideright1" style="width: 400px; float: left; left: 600px; margin-top: 350px; animation-delay: 1s">
+					<span style="line-height: 40px">C/C++</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:95%"><k style="color: #E8E8E8;">.</k>
+							<span>95%</span>
+						</div>
+					</div>
+				</div>
+				<div id="slideleft" style="animation-delay: 1s; width: 400px; margin-left: 60px; left: -100px; margin-top: 410px; float: left; animation-delay: 1.3s">
+					<span style="line-height: 40px">Javascript</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-3" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:80%"><k style="color: #E8E8E8;">.</k>
+							<span>80%</span>
+						</div>
+					</div>
+				</div>
+				<div id="slideright1" style="width: 400px; float: left; left: 600px; margin-top: 410px; animation-delay: 1.3s">
+					<span style="line-height: 40px">JAVA Swing</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-4" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:90%"><k style="color: #E8E8E8;">.</k>
+							<span>90%</span>
+						</div>
+					</div>
+				</div>
+				<div id="slideleft" style="animation-delay: 1s; width: 400px; margin-left: 60px; left: -100px; margin-top: 470px; float: left; animation-delay: 1.6s">
+					<span style="line-height: 40px">jQuery</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-5" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:60%"><k style="color: #E8E8E8;">.</k>
+							<span>60%</span>
+						</div>
+					</div>
+				</div>
+				<div id="slideright1" style="width: 400px; float: left; left: 600px; margin-top: 470px; animation-delay: 1.6s">
+					<span style="line-height: 40px">Android</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-6" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:50%"><k style="color: #E8E8E8;">.</k>
+							<span>50%</span>
+						</div>
+					</div>
+                </div>
+                <div id="slideleft" style="animation-delay: 1s; width: 400px; margin-left: 60px; left: -100px; margin-top: 530px; float: left; animation-delay: 1.9s">
+					<span style="line-height: 40px">JSP</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-5" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:90%"><k style="color: #E8E8E8;">.</k>
+							<span>90%</span>
+						</div>
+					</div>
+				</div>
+                <div id="slideright1" style="width: 400px; float: left; left: 600px; margin-top: 530px; animation-delay: 1.9s">
+					<span style="line-height: 40px">JAVA Servlet</span>
+					<div clas="progress-back" style="background-color: #E8E8E8">
+						<div class="progress-bar color-6" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:90%"><k style="color: #E8E8E8;">.</k>
+							<span>90%</span>
+						</div>
+					</div>
+				</div>
+                
+				</div> 
+ <!-- here
+                    <div class="skillsLeft" style="float: left; width: 400px;">
+                        <p id="slideleft" style="animation-delay: 1s; margin-left: 60px; left: -100px; margin-top: 300px;">WEB DEVELOPMENT</p>
+                        <div id="slideleft" style="animation-delay: 1s; width: 100%; margin-left: 60px; left: -100px; margin-top: 350px; animation-delay: 1s">
+                            <span style="line-height: 40px">HTML/CSS</span>
+                            <div clas="progress-back" style="background-color: #E8E8E8">
+                                <div class="progress-bar color-1" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:90%"><k style="color: #E8E8E8;">.</k>
+                                    <span>90%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skillsRight">
+                        <p id="slideright1" style="animation-delay: 1s; left: 600px; margin-top: 300px;">PROGRAMMING</p>
+                        <div id="slideright1" style="width: 400px; margin-top: 350px; animation-delay: 1s">
+                            <span style="line-height: 40px">C/C++</span>
+                            <div clas="progress-back" style="background-color: #E8E8E8">
+                                <div class="progress-bar color-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:95%"><k style="color: #E8E8E8;">.</k>
+                                    <span>95%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+				-->
+			</div>
+            
+            <div id="education" class="split right">
+				<div id="slideleft" style="left: -100px; width: 70%">
+					<div style="margin-top: 100px">
+						<p style=" letter-spacing: 3px; font-size: 70%; margin-left: 60px; color: lightslategray">EDUCATION</p>
+						<p style=" letter-spacing: 3px; font-size: 130%; margin-left: 60px; line-height: 35px">EDUCATION</P>
+					</div>
+					<div style="margin-left: 60px; margin-top: 100px">
+						<div class="eduheading">
+							<button class="eduheadingbt" onclick="educationdiv(event, 'mca', 'mca1')">MASTER OF COMPUTER APPLICATIONS (pursuing)<span id="mca1" class="plus" style="float:right; margin-right: 5px; font-size: 150%">+</span></button>
+						</div>
+						<div id="mca" class="edudata">
+                            <div class="aft">
+                                <div style="float: left; margin-top: 5px; margin-left: 5px;"><img src="iips_logo.png" height="35px" width="30px"></div>
+                                <div style="float: left; margin-left: 5px; margin-top: -6px;"><p><strong><a class="href" href="https://www.iips.edu.in/" target="_blank">International Institute of Professional Studies (IIPS), Davv</a></strong></p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size: 28px;">location_on</i></div>
+                                <div style="margin-left: 40px;"><p>Indore, India</p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size:28px">school</i></div>
+                                <div style="margin-left: 40px;"><p>Master of Computer Application, Proficiency <y style="font-size: 80%;"><strong>(2020-22)</strong></y></p></div>
+                            </div>
+						</div>
+                        
+                        <div class="eduheading">
+							<button class="eduheadingbt" onclick="educationdiv(event, 'bca', 'bca1')">BACHELOR OF COMPUTER APPLICATIONS<span id="bca1" class="plus" style="float:right; margin-right: 5px; font-size: 150%">+</span></button>
+						</div>
+						<div id="bca" class="edudata">
+                            <div class="aft">
+                                <div style="float: left; margin-top: 5px; margin-left: 5px;"><img src="iips_logo.png" height="35px" width="30px"></div>
+                                <div style="float: left; margin-left: 5px; margin-top: -6px;"><p><strong><a class="href" href="https://www.iips.edu.in/" target="_blank">International Institute of Professional Studies (IIPS), Davv</a></strong></p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size: 28px;">location_on</i></div>
+                                <div style="margin-left: 40px;"><p>Indore, India</p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size:28px">school</i></div>
+                                <div style="margin-left: 40px;"><p>Bachelor's of Computer Application, Proficiency <y style="font-size: 80%;"><strong>(2017-20)</strong></y></p></div>
+                            </div>
+						</div>
+						
+						<div class="eduheading">	
+							<button class="eduheadingbt" onclick="educationdiv(event, 'school', 'school1')">HIGH SCHOOL SECONDARY EDUCATION<span id="school1" class="plus" style="float:right; margin-right: 5px; font-size: 150%">+</span></button>
+						</div>
+						<div id="school" class="edudata">
+							<div class="aft">
+                                <div style="float: left; margin-top: 5px; margin-left: 5px;"><img src="kv_logo.png" height="25px" width="30px"></div>
+                                <div style="float: left; margin-left: 5px; margin-top: -6px;"><p><strong><a class="href" href="https://indore.nic.in/en/public-utility/central-school-no-1/" target="_blank">Kendriya Vidyalaya No.1, Indore</a></strong></p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size: 28px;">location_on</i></div>
+                                <div style="margin-left: 40px;"><p>Indore, India</p></div>
+                            </div>
+                            <div class="aft">
+                                <div style="float: left; margin-top: 0px; margin-left: 5px;"><i class="material-icons" style="font-size:28px">school</i></div>
+                                <div style="margin-left: 40px;"><p>Higher Secondary Education<br><y style="font-size: 80%;"><strong>(Completed in 2017)</strong></y></p></div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+            <div id="experience" class="split right"><p>experience</p></div>
+            
+            <div id="work" class="split right">
+                <div id="slideleft" style="left: -100px; font-family: Arial, Helvetica, sans-serif; text-align: justify; margin-top: 70px; width: 900px">
+                    <p style=" letter-spacing: 3px; font-size: 70%; margin-left: 60px; color: lightslategray">MY WORK</p>
+                    <p style=" letter-spacing: 3px; font-size: 130%; margin-left: 60px; line-height: 35px">RECENT WORK</P>
+                    <br><br><br>
+                    <div class="workTabs" style="margin-left: 60px;">
+                        <button class="workButtons">Web Projects</button>
+                        <button class="workButtons">Software</button>
+                        <button class="workButtons">Apps</button>
+                    </div>
+				</div>
+                <div style="margin-top: 300px">
+                    <div id="slidebottom" class="workdiv" style=" animation-delay: 1s; margin-left: 60px; margin-bottom: 30px; position: relative">
+                        <img src="parallax1.jpg" height="250px" width="250px">
+                    </div>
+                    <div id="slidebottom" class="workdiv" style=" animation-delay: 1.2s; margin-left: 60px; margin-bottom: 30px; position: relative">
+                        <img src="parallax1.jpg" height="250px" width="250px">
+                    </div>
+                    <div id="slidebottom" class="workdiv" style=" animation-delay: 1.4s; margin-left: 60px; margin-bottom: 30px; position: relative">
+                        <img src="parallax1.jpg" height="250px" width="250px">
+                    </div>
+                </div>
+            </div>
+            
+            <div id="blog" class="split right"><p>blog</p></div>
+            
+            <div id="contact" class="split right">
+                <div id="slideleft" style="left: -100px; font-family: Arial, Helvetica, sans-serif; text-align: justify; margin-top: 70px; width: 900px">
+                    <p style=" letter-spacing: 3px; font-size: 70%; margin-left: 60px; color: lightslategray">GET IN TOUCH</p>
+                    <p style=" letter-spacing: 3px; font-size: 130%; margin-left: 60px; line-height: 35px">CONTACT</p>
+                </div>
+                <div>
+                    <i id="slideleft" class="fa1 fa fa-address-book-o" style="background-color: #E8E8E8; padding: 25px 15px; margin-left: 60px; margin-top: 200px; font-size: 25px; left: -70px; animation-delay: 1s;"></i>
+                    <p id="slideleft" style="margin-top: 225px; margin-left: 150px; left: -70px; animation-delay: 1s;">Indore, India</p>
+                    <i id="slideleft" class="fa1 fa fa-phone" style="background-color: #E8E8E8; padding: 25px 15px; margin-left: 60px; margin-top: 300px; left: -70px; font-size: 25px; animation-delay: 1.2s;"></i>
+                    <p id="slideleft" style="margin-top: 325px; margin-left: 150px; left: -70px; animation-delay: 1.2s;"><a class="href" href="tel:+919754710770">+919754710770</a></p>
+                    <i id="slideleft" class="fa fa-envelope-o" style="background-color: #E8E8E8; padding: 25px 15px; margin-left: 60px; margin-top: 400px; left: -70px; font-size: 25px; animation-delay: 1.4s;"></i>
+                    <p id="slideleft" style="margin-top: 425px; margin-left: 150px; left: -70px; animation-delay: 1.4s;"><a class="href" style="color: blue;" >prasukjain2000@gmail.com</a></p>
+
+                </div>
+                <!--<div style="position: absolute;">
+                    <form>
+                        <table>
+                            <tr><td><input type="text" style="font-size: 20px;"></td></tr>
+                        </table>
+                    </form>
+                </div>-->
+                <div style="margin-left: 60px; margin-top: 600px">
+                    <a href="https://www.facebook.com/prasuk.jain.716/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/myth_makers?s=08" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://in.linkedin.com/in/prasuk-jain-3511101b4" target="_blank" class="fa fa-linkedin"></a>
+                    <a href="https://www.instagram.com/myth.makers/" target="_blank" class="fa fa-instagram"></a>
+                    <a href="https://www.snapchat.com/add/myth_maker" target="_blank" class="fa fa-snapchat-ghost"></a>
+                    <a href="https://join.skype.com/invite/kxkW3u0IaZhR" target="_blank" class="fa fa-skype"></a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script>
+            document.getElementById('workbt').click();
+            function buttons(evt, page){
+                var i, pgcontent,tablinks;
+                pgcontent = document.getElementsByClassName("right");
+                for (i = 0; i < pgcontent.length; i++) {
+                    pgcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("btlink");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(page).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            
+            function work(){
+                document.getElementById('workbt').click();
+            }
+			
+			document.getElementById("bca").style.display = "none";
+			document.getElementById("school").style.display = "none";
+			function educationdiv(evt, data, data1) {
+				var x = document.getElementById(data);
+				var i,j, edudata,eduheadingbt,edubtspan;
+                edudata = document.getElementsByClassName("edudata");
+				edubtspan = document.getElementsByClassName("plus");
+                eduheadingbt = document.getElementsByClassName("eduheadingbt");
+				if(x.style.display === "block"){
+					x.style.display = "none";
+					document.getElementById(data1).innerHTML = "+";
+					evt.currentTarget.style.backgroundColor = "#F5F5F5";
+					evt.currentTarget.style.color = "black";
+				}
+				else{
+                for (i = 0; i < edudata.length; i++) {
+                    edudata[i].style.display = "none";
+                }
+                for (i = 0,j = 0; i < eduheadingbt.length, j < edubtspan.length; i++, j++) {
+                    eduheadingbt[i].className = eduheadingbt[i].className.replace(" active", "");
+					edubtspan[j].innerHTML = "+";
+					eduheadingbt[i].style.backgroundColor = "#F5F5F5";
+					eduheadingbt[i].style.color = "black";
+                }
+                document.getElementById(data).style.display = "block";
+                evt.currentTarget.className += " active";
+				document.getElementById(data1).innerHTML = "-";
+				evt.currentTarget.style.backgroundColor = "#663399";
+				evt.currentTarget.style.color = "white";
+				}
+			}
+
+            function clear(){
+                document.getElementById('inputf').value = "";
+            }
+            
+            function pagebtn(){
+                
+            }
+        </script>
+    </body>
+</html>
